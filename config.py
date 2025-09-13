@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
 
-BASE_URL = "https://api.kinopoisk.dev/v1.4"
-API_TOKEN = os.getenv("KINOPOISK_TOKEN", "")
+load_dotenv()
+
+YANDEX_BROWSER_PATH = os.getenv("YANDEX_BROWSER_PATH")
