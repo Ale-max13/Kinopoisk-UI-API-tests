@@ -4,10 +4,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import config
+
+
 def test_search_bar_is_displayed():
     service = Service(executable_path="./yandexdriver.exe")
     options = webdriver.ChromeOptions()
-    options.binary_location = r"C:\Users\alena\AppData\Local\Yandex\YandexBrowser\Application\browser.exe"
+    options.binary_location = config.YANDEX_BROWSER_PATH
     options.add_argument("--disable-logging")
     options.add_argument("--log-level=3")
     options.add_argument("--ignore-certificate-errors")
@@ -26,7 +29,7 @@ def test_search_bar_is_displayed():
 def test_movie_card_is_displayed():
     service = Service(executable_path="./yandexdriver.exe")
     options = webdriver.ChromeOptions()
-    options.binary_location = r"C:\Users\alena\AppData\Local\Yandex\YandexBrowser\Application\browser.exe"
+    options.binary_location = config.YANDEX_BROWSER_PATH
     options.add_argument("--disable-logging")
     options.add_argument("--log-level=3")
     options.add_argument("--ignore-certificate-errors")
@@ -50,7 +53,7 @@ def test_movie_card_is_displayed():
 def test_popular_movies_page():
     service = Service(executable_path="./yandexdriver.exe")
     options = webdriver.ChromeOptions()
-    options.binary_location = r"C:\Users\alena\AppData\Local\Yandex\YandexBrowser\Application\browser.exe"
+    options.binary_location = config.YANDEX_BROWSER_PATH
     options.add_argument("--disable-logging")
     options.add_argument("--log-level=3")
     options.add_argument("--ignore-certificate-errors")
@@ -63,4 +66,41 @@ def test_popular_movies_page():
         EC.presence_of_element_located((By.CSS_SELECTOR, 'a[href*="/film/"]'))
     )
     assert movie_card.is_displayed()
+    driver.quit()
+
+
+def test_main_page_title():
+    service = Service(executable_path="./yandexdriver.exe")
+    options = webdriver.ChromeOptions()
+    options.binary_location = config.YANDEX_BROWSER_PATH
+    options.add_argument("--disable-logging")
+    options.add_argument("--log-level=3")
+    options.add_argument("--ignore-certificate-errors")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+
+    driver = webdriver.Chrome(service=service, options=options)
+    driver.get("https://www.kinopoisk.ru/")
+
+    assert "Кинопоиск" in driver.title
+    driver.quit()
+
+
+def test_login_button_is_displayed():
+    service = Service(executable_path="./yandexdriver.exe")
+    options = webdriver.ChromeOptions()
+    options.binary_location = config.YANDEX_BROWSER_PATH
+    options.add_argument("--disable-logging")
+    options.add_argument("--log-level=3")
+    options.add_argument("--ignore-certificate-errors")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+
+    driver = webdriver.Chrome(service=service, options=options)
+    driver.get("https://www.kinopoisk.ru/")
+
+    login_button = WebDriverWait(driver, 15).until(
+        EC.presence_of_element_located(
+            (By.XPATH, "//button[contains(text(), 'Войти')]")
+        )
+    )
+    assert login_button.is_displayed()
     driver.quit()
