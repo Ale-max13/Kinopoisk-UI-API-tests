@@ -1,3 +1,4 @@
+import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -7,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import config
 
 
+@pytest.mark.ui
 def test_search_bar_is_displayed():
     service = Service(executable_path="./yandexdriver.exe")
     options = webdriver.ChromeOptions()
@@ -26,6 +28,7 @@ def test_search_bar_is_displayed():
     driver.quit()
 
 
+@pytest.mark.ui
 def test_movie_card_is_displayed():
     service = Service(executable_path="./yandexdriver.exe")
     options = webdriver.ChromeOptions()
@@ -50,6 +53,7 @@ def test_movie_card_is_displayed():
     driver.quit()
 
 
+@pytest.mark.ui
 def test_popular_movies_page():
     service = Service(executable_path="./yandexdriver.exe")
     options = webdriver.ChromeOptions()
@@ -69,6 +73,7 @@ def test_popular_movies_page():
     driver.quit()
 
 
+@pytest.mark.ui
 def test_main_page_title():
     service = Service(executable_path="./yandexdriver.exe")
     options = webdriver.ChromeOptions()
@@ -85,6 +90,7 @@ def test_main_page_title():
     driver.quit()
 
 
+@pytest.mark.ui
 def test_login_button_is_displayed():
     service = Service(executable_path="./yandexdriver.exe")
     options = webdriver.ChromeOptions()
