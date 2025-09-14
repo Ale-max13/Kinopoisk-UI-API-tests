@@ -43,3 +43,7 @@ allure serve allure-results
 ⚠️ Ограничения
 При частых запусках UI тестов Кинопоиск может показывать капчу «Вы не робот?».
 - Это защита ресурса, не ошибка тестов!
+
+## 📊 Отчёт VSC и Allure:
+<img width="1201" height="654" alt="Image" src="https://github.com/user-attachments/assets/2178d55f-fbfd-422c-9e27-e59b28e094dc" />
+<img width="1919" height="727" alt="Image" src="https://github.com/user-attachments/assets/bf0b1359-4e91-4138-9012-daa02922b757" />
