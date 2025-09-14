@@ -27,7 +27,7 @@ def test_search_bar_is_displayed():
         driver.get("https://www.kinopoisk.ru/")
 
     with allure.step("Проверяем наличие строки поиска"):
-        search_bar = WebDriverWait(driver, 15).until(
+        search_bar = WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.NAME, "kp_query"))
         )
         assert search_bar.is_displayed()
@@ -53,13 +53,13 @@ def test_movie_card_is_displayed():
         driver.get("https://www.kinopoisk.ru/")
 
     with allure.step("Вводим текст в поиск"):
-        search_bar = WebDriverWait(driver, 15).until(
+        search_bar = WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.NAME, "kp_query"))
         )
         search_bar.send_keys("Оно\n")
 
     with allure.step("Проверяем наличие карточки фильма"):
-        movie_card = WebDriverWait(driver, 15).until(
+        movie_card = WebDriverWait(driver, 30).until(
             EC.presence_of_element_located(
                 (By.CSS_SELECTOR, 'a[href*="/film/"]')
             )
@@ -87,7 +87,7 @@ def test_popular_movies_page():
         driver.get("https://www.kinopoisk.ru/lists/movies/popular/")
 
     with allure.step("Проверяем наличие карточки фильма"):
-        movie_card = WebDriverWait(driver, 15).until(
+        movie_card = WebDriverWait(driver, 30).until(
             EC.presence_of_element_located(
                 (By.CSS_SELECTOR, 'a[href*="/film/"]')
             )
@@ -138,7 +138,7 @@ def test_login_button_is_displayed():
         driver.get("https://www.kinopoisk.ru/")
 
     with allure.step("Проверяем наличие кнопки 'Войти'"):
-        login_button = WebDriverWait(driver, 15).until(
+        login_button = WebDriverWait(driver, 30).until(
             EC.presence_of_element_located(
                 (By.XPATH, "//button[contains(text(),'Войти')]")
             )
