@@ -58,11 +58,11 @@ pytest -m "ui or api" -v
 
 
 ## 📊 Результаты тестов:
-### Все тесты (UI + API):
-<img width="941" height="498" alt="Image" src="https://github.com/user-attachments/assets/e75cc30a-2d87-4f70-bc86-d879408c53c3" />
+### Все тесты (UI + API) и Allure:
 
-### Отчёт Allure:
-<img width="1918" height="735" alt="Image" src="https://github.com/user-attachments/assets/fbb595b2-23e8-4a5f-b4a0-d1a21f2d98bd" />
+<img width="941" height="498" alt="UI_API_testing" src="https://github.com/user-attachments/assets/9e9c3e1f-860b-4a0c-8034-e52c41299af6" />
+<img width="1918" height="735" alt="Allure" src="https://github.com/user-attachments/assets/10ffe5ee-875f-4f51-985a-423fb8ff9c9a" />
+
 
 ### ✅ Чек-лист перед запуском
 - Установлен Google Chrome и подходящий chromedriver.exe в корне репозитория
