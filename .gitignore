@@ -2,6 +2,7 @@ __pycache__/
 .pytest_cache/
 .vscode/
 *.log
-chromedriver*
-yandexdriver.exe
+chromedriver.exe
 .env
+allure-results/
+allure-report/

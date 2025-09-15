@@ -59,9 +59,9 @@ def test_search_empty_query():
     with allure.step("Отправляем запрос с пустым query"):
         response = requests.get(url, headers=headers, params=params)
 
-    with allure.step("Проверяем статус-код (200 или 400)"):
-        assert response.status_code in [200, 400]
-
+    with allure.step("Проверяем статус-код (ожидаем 200)"):
+        assert response.status_code == 200
+    
 
 @pytest.mark.api
 @allure.feature("API: Movie search")
